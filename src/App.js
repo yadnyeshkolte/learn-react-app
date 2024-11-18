@@ -3,8 +3,6 @@ import PeopleContainer from "./People-Container";
 import "./App.css";
 
 const App = () => {
-  const title = "My new react app";
-
   const [results, setResults] = useState([]);
   useEffect(() => {
     fetch("https://randomuser.me/api/?results=3")
@@ -18,7 +16,7 @@ const App = () => {
   return (
     <div>
       <div>
-        <h1>{title} </h1>
+        <h1>My new React App</h1>
       </div>
       <div>
         {results.map((result, index) => {
