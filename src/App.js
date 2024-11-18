@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import PeopleContainer from "./People-Container";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const title = "My new react app";
+
+  const [results, setResults] = useState([]);
+  useEffect(() => {
+    fetch("https://randomuser.me/api/?results=3")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setResults(data.results);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <h1> Presenting {title} </h1>
+      </div>
+      <div>
+        {results.map((result, index) => {
+          return (
+            <PeopleContainer
+              key={index}
+              imageUrl={result.picture.medium}
+              name={result.name.first}
+              email={result.email}
+              age={result.dob.age}
+            />
+          );
+        })}
+        ;
+      </div>
     </div>
   );
-}
-
+};
 export default App;
