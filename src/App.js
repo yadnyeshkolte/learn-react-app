@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div>
       <div>
-        <h1> Presenting {title} </h1>
+        <h1>{title} </h1>
       </div>
       <div>
         {results.map((result, index) => {
@@ -32,7 +32,6 @@ const App = () => {
             />
           );
         })}
-        ;
       </div>
     </div>
   );
