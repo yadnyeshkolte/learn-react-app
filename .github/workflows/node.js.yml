@@ -30,7 +30,7 @@ jobs:
       - run: npm test
       - name: Deploy with gh-pages
         run: |
-          git remote set-url origin https://git:$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@github.com/$https://github.com/yadnyeshkolte/learn-react-app.git
+          git remote set-url origin https://git:$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@github.com/yadnyeshkolte/learn-react-app.git
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
