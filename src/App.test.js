@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { act } from "react";
-//dumb
+
 
 test("renders My new React App link", () => {
   act(() => {
